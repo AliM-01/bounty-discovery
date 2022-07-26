@@ -45,14 +45,13 @@ function parseBody(body: any): Question[] {
     return bounties;
 }
 
-export default async function getBounties() {
+export default async function getBounties(): Promise<Question[]> {
     return axios({
         method: 'GET',
         url: 'https://stackoverflow.com/questions?sort=Newest&filters=Bounty&edited=true'
     })
         .then((response) => {
-            parseBody(response.data);
-            return "";
+            return parseBody(response.data);;
         })
         .catch((err) => {
             console.log(err)
