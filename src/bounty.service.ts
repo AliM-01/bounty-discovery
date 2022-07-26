@@ -10,7 +10,14 @@ type Question = {
     tags: string[]
 }
 
-function parseBody(body: any): Question[] {
+function parseBody(body: any, take: number): Question[] {
+
+    if (take > 50 )
+        take = 50;
+
+    if (take == 0)
+        take = 5;
+
     const $ = load(body)
 
     let bounties: Question[] = [];
@@ -42,16 +49,16 @@ function parseBody(body: any): Question[] {
         bounties.push(question);
     });
 
-    return bounties;
+    return bounties.slice(0, take);
 }
 
-export default async function getBounties(): Promise<Question[]> {
+export default async function getBounties(take: number): Promise<Question[]> {
     return axios({
         method: 'GET',
         url: 'https://stackoverflow.com/questions?sort=Newest&filters=Bounty&edited=true'
     })
         .then((response) => {
-            return parseBody(response.data);;
+            return parseBody(response.data, take);;
         })
         .catch((err) => {
             console.log(err)

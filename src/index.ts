@@ -5,11 +5,14 @@ const app: Application = express();
 
 app.use(express.json());
 
-app.get("/", async (req: Request, res: Response) => {
-    const bounties = await getBounties();
+// GET /bounties
+// GET /bounties?take=10
+app.get("/bounties", async (req: Request, res: Response) => {
+    const take = req.query.take !== undefined ? Number(req.query.take) : 25;
+
+    const bounties = await getBounties(take);
     const jsonData = JSON.stringify(bounties, null, '\t');
-    console.log(jsonData);
-    
+
     res.status(200).json(jsonData);
 });
 
