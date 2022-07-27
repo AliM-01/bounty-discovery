@@ -9,10 +9,7 @@ router.get("/bounty", async (req, res) => {
     const controller = new PingController();
 
     const bounties = await controller.getBounties(take);
-    const jsonData = JSON.stringify(bounties, null, '\t');
-
-    // res.status(200).json(jsonData);
-
+    
     return res.send(bounties);
 });
 
