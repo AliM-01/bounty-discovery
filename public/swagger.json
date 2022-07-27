@@ -74,6 +74,9 @@
 						}
 					}
 				},
+				"tags": [
+					"Bounty"
+				],
 				"security": [],
 				"parameters": [
 					{
@@ -92,6 +95,11 @@
 	"servers": [
 		{
 			"url": "/"
+		}
+	],
+	"tags": [
+		{
+			"name": "Bounty"
 		}
 	]
 }

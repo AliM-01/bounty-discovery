@@ -3,6 +3,11 @@
     "noImplicitAdditionalProperties": "throw-on-extras",
     "spec": {
         "outputDirectory": "public",
-        "specVersion": 3
+        "specVersion": 3,
+        "tags": [
+            {
+                "name": "Bounty"
+            }
+        ]
     }
 }

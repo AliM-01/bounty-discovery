@@ -19,4 +19,5 @@ app.use("/docs", swaggerUi.serve,
 
 app.listen(8080, () => {
     console.log("Running on http://localhost:8080");
+    console.log("Docs available on http://localhost:8080/docs");
 })
