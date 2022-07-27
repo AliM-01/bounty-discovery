@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { load } from 'cheerio';
 
-type Question = {
+export interface Question {
     title: string;
     link: string;
     bounty: number
@@ -52,7 +52,7 @@ function parseBody(body: any, take: number): Question[] {
     return bounties.slice(0, take);
 }
 
-export default async function getBounties(take: number): Promise<Question[]> {
+export async function getBounties(take: number): Promise<Question[]> {
     return axios({
         method: 'GET',
         url: 'https://stackoverflow.com/questions?sort=Newest&filters=Bounty&edited=true'

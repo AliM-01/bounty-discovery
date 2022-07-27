@@ -10,8 +10,9 @@
     "strict": true,
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
-    "paths": {
-    },
+    "paths": { },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["./src/**/*"]
 }
