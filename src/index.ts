@@ -1,21 +1,15 @@
-import express, { Application, Request, Response } from 'express';
-import swaggerUi from "swagger-ui-express";
-import Router from "./router";
+import express, { Application } from 'express';
+import { RegisterRoutes } from "./routes";
+
+import * as swaggerJson from "./swagger.json";
+import * as swaggerUI from "swagger-ui-express";
 
 const app: Application = express();
 
 app.use(express.json());
-app.use(express.static("public"));
 
-app.use(Router);
-
-app.use("/docs", swaggerUi.serve, 
-                swaggerUi.setup(undefined, { 
-                    swaggerOptions:  { 
-                    url: "/swagger.json",
-                    }, 
-                })
-);
+RegisterRoutes(app);
+app.use(["/openapi", "/docs", "/swagger"], swaggerUI.serve, swaggerUI.setup(swaggerJson));
 
 app.listen(8080, () => {
     console.log("Running on http://localhost:8080");
