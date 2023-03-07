@@ -12,7 +12,7 @@ export interface Question {
 
 function parseBody(body: any, take: number): Question[] {
 
-    if (take > 50 )
+    if (take > 50)
         take = 50;
 
     if (take == 0)
@@ -62,6 +62,6 @@ export async function getBounties(take: number): Promise<Question[]> {
         })
         .catch((err) => {
             console.log(err)
-            return err;
+            return [];
         });
 }
