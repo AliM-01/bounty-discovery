@@ -1,16 +1,8 @@
 import express from "express";
-import PingController from "./controllers/bounty";
+import { getBountiesHandler } from "./controllers/bounty.controller";
 
 const router = express.Router();
 
-router.get("/bounty", async (req, res) => {
-    const take = req.query.take !== undefined ? Number(req.query.take) : 25;
-
-    const controller = new PingController();
-
-    const bounties = await controller.getBounties(take);
-    
-    return res.send(bounties);
-});
+router.get("/bounty", getBountiesHandler);
 
 export default router;
