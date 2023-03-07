@@ -2,9 +2,8 @@
 A web-scraper built with nodejs, typescript cheerio to get new bounties available on StackOverflow
 
 ## Run
-1. Install [Node.js](https://nodejs.org) & [nodemon](https://nodemon.io)
-2. From project root folder install all the dependencies: `npm i`
-3. Run `npm run dev` and open [localhost:8080/docs](http://localhost:8080/docs) to view swagger
+1. Install [Node.js](https://nodejs.org)
+2. Run `npm start` and open [localhost:8080/docs](http://localhost:8080/docs) to view open api docs
 
 
 ## Preview
